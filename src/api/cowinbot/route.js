@@ -1,8 +1,9 @@
-  
 const express = require("express");
 const {
     main_bot,
-    mailtest
+    mailtest,
+    cron_bot,
+    addtofile
    } = require('./index');
 module.exports = () => {
   const routes = express.Router();
@@ -14,6 +15,12 @@ module.exports = () => {
 });
 routes.get('/mail', (req, res) => {
   return mailtest(req, res);
+});
+routes.get('/mailcron', (req, res) => {
+  return cron_bot(req, res);
+});
+routes.post('/adduser', (req, res) => {
+  return addtofile(req, res);
 });
 // routes.post('/simple_verify', (req, res) => {
 //   return in_simple(req, res);
