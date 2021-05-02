@@ -1,3 +1,5 @@
 .env
 node_modules
 sastadb.txt
+ejsapp/cowin-bot/.idea
+ejsapp/cowin-bot/node_modules
