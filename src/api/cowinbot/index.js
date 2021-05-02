@@ -54,7 +54,7 @@ async function checkAvailability(dist, email) {
     arra.forEach(element => {
         var singlearr = element.sessions;
         singlearr.forEach(obj => {
-            if (obj.min_age_limit === 45 && obj.available_capacity > 0) {
+            if (obj.min_age_limit === 18 && obj.available_capacity > 0) {
                 var findata = {
                     'name': element.name,
                     'date': obj.date,
