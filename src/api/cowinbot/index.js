@@ -46,7 +46,8 @@ async function checkAvailability(dist, email) {
     console.log(dateString)
     const response = await axios.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=' + district_id + '&date=' + dateString, options);
     // console.log(response.data);
-    var arra = [];
+    let arra = [];
+    
     arra = response.data.centers;
 
 
