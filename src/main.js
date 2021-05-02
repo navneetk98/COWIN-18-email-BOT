@@ -26,4 +26,4 @@ app.use(bodyParser.urlencoded({
   const routes = require('./routes');
   routes(app);
   
-  app.listen(PORT, () => console.log(`Your app listening on port ${PORT.toString()}!`));
+  app.listen(PORT,'0.0.0.0', () => console.log(`Your app listening on port ${PORT.toString()}!`));
