@@ -9,18 +9,18 @@ const fs = require('fs');
 const moment = require('moment');
 
 async function cronjobs() {
-
-
-
     try {
         cron.schedule('* * * * *', async () => {
             var sastadb = fs.readFileSync('./sastadb.txt', 'utf8').split('\n');
 
-            for (i = 0; i < sastadb.length - 1; i++) {
-                var words = sastadb[i].split(' ');
-                console.log(words[1]);
 
-                checkAvailability(words[1], words[0]);
+            for (i = 0; i < sastadb.length - 1; i++) {
+                if (((/\w/).test(sastadb[i]))) {
+                    var words = sastadb[i].split(' ');
+                    console.log(words[1]);
+                    console.log(typeof (words[0]));
+                    checkAvailability(words[1], words[0]);
+                }
             }
 
         });
@@ -28,9 +28,6 @@ async function cronjobs() {
         console.log('an error occured: ' + JSON.stringify(e, null, 2));
         throw e;
     }
-
-
-
 }
 
 async function checkAvailability(dist, email) {
@@ -47,7 +44,7 @@ async function checkAvailability(dist, email) {
     const response = await axios.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=' + district_id + '&date=' + dateString, options);
     // console.log(response.data);
     let arra = [];
-    
+
     arra = response.data.centers;
 
 
@@ -106,8 +103,11 @@ module.exports = {
         var email;
         var cityid;
         email = req.body.email;
+        console.log(email);
         cityid = req.body.cityid;
-
+        if (email == "" || cityid == "") {
+            return res.status(400).send();
+        }
         const content = email + ' ' + cityid + '\n';
 
         fs.appendFile('./sastadb.txt', content, err => {
