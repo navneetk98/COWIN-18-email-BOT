@@ -10,7 +10,7 @@ const moment = require('moment');
 
 async function cronjobs() {
     try {
-        cron.schedule('* * * * *', async () => {
+        cron.schedule('0 * * * *', async () => {
             var sastadb = fs.readFileSync('./sastadb.txt', 'utf8').split('\n');
 
 
