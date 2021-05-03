@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="shortcut icon" href="http://themes.guide/favicon.ico" type="image/x-icon"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/3.0.0/css/ionicons.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
     <link href="./theme.css" rel="stylesheet">
     <link href="./template.css" rel="stylesheet">
 </head>
@@ -36,7 +38,9 @@
                                                     <option value="<%= state[i].state_id %>"><%= state[i].state_name %></option>
                                                 <% } %>
                                             </select>
-                                            <small class="form-text text-danger flex-grow-1 help-block lead"></small>
+                                            <% if (err2 === true) { %>
+                                            <small class="form-text text-danger flex-grow-1 help-block lead">Choose State</small>
+                                            <% } %>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -44,7 +48,9 @@
                                             <select class="form-control" id="dist" name="dist">
                                                 <option value="" selected disabled>Select District</option>
                                             </select>
+                                            <% if (err3 === true) { %>
                                             <small class="form-text text-danger help-block lead"></small>
+                                            <% } %>
                                         </div>
                                     </div>
                                 </div>
@@ -52,18 +58,20 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <input class="form-control" type="text" id="email" name="email"/>
-                                            <small class="form-text text-danger help-block lead"></small>
+                                            <% if (err1 === true) { %>
+                                                <small class="form-text text-danger help-block lead">Enter valid Email</small>
+                                            <% } %>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="col-lg-12 text-center">
-                                        <button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton"
+                                        <button class="btn btn-primary btn-xl text-uppercase"
                                                 type="submit">Remind me
                                         </button>
                                     </div>
                                 </div>
-                                <% if (status == true) { %>
+                                <% if (status === true) { %>
                                     <div class="form-row">
                                         <div class="col-lg-12 text-center">
                                             <div id="success">
@@ -90,7 +98,9 @@
         <div class="row">
             <div class="col-md-12">
                 <strong>Disclaimer:</strong> This web app uses CoWin open API to make it easy for you to find slots. Availability changes in real time. So book your slot ASAP using <a href="https://selfregistration.cowin.gov.in">https://selfregistration.cowin.gov.in</a>.<br />
-                <br>For any support <strong><a href="https://twitter.com/iam__navneet">@iam__navneet</a></strong> or <strong><a href="https://twitter.com/iOSDev747">@iOSDev747</a></strong>
+                <br>For any support <strong><a href="https://twitter.com/iam__navneet">@iam__navneet</a></strong> or
+                <strong><a href="https://twitter.com/iOSDev747">@iOSDev747</a></strong> or
+                <strong><a href="https://twitter.com/chitranshu651">@chitranshu651</a></strong>
             </div>
         </div>
     </div>
