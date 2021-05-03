@@ -69,7 +69,7 @@ async function checkAvailability(dist, email) {
             domain: process.env.MAIL_DOMAIN
         });
         const data = {
-            from: 'COWIN Vaccine Reminder <info@navneetk.co>',
+            from: 'CowIN 18+ Vaccine <info@navneetk.co>',
             to: email,
             subject: 'We just found some 18+ vaccination centres! ' +dateString,
             text: JSON.stringify(finalarr, null, 2)
@@ -83,7 +83,7 @@ async function checkAvailability(dist, email) {
 }
 
 module.exports = {
-    main_bot: async (req, res) => {
+    test_bot: async (req, res) => {
         var email;
         var cityid;
         email = req.body.email;
@@ -121,7 +121,7 @@ module.exports = {
                 domain: 'navneetk.co'
             });
             const data = {
-                from: 'CowIN Vaccine reminder <info@navneetk.co>',
+                from: 'CowIN 18+ Vaccine <info@navneetk.co>',
                 to: email,
                 subject: 'Successfully added to mailing list',
                 text: 'We will check on hourly basis and will remind if any 18+ vaccination slots open at your place. To unsubscribe write a mail to navneetkh98@gmail.com.'
@@ -141,7 +141,7 @@ module.exports = {
             domain: 'navneetk.co'
         });
         const data = {
-            from: 'CowIN Vaccine Reminder <info@navneetk.co>',
+            from: 'CowIN 18+ Vaccine <info@navneetk.co>',
             to: 'navneetkhandelwal1998@gmail.com',
             subject: 'We just found some 18+ vaccination centres!',
             text: 'Testing some Mailgun awesomness!'

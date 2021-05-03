@@ -1,6 +1,6 @@
 const express = require("express");
 const {
-    main_bot,
+  test_bot,
     mailtest,
     cron_bot,
     addtofile
@@ -10,8 +10,8 @@ module.exports = () => {
   routes.get('/test', (req, res) => {
     return res.status(200).send("Working....");
   });
-  routes.post('/bot', (req, res) => {
-    return main_bot(req, res);
+  routes.post('/testbot', (req, res) => {
+    return test_bot(req, res);
 });
 routes.get('/mail', (req, res) => {
   return mailtest(req, res);
