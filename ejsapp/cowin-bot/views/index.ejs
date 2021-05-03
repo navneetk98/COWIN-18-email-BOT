@@ -24,48 +24,161 @@
     <link href="./template.css" rel="stylesheet">
 </head>
 <body>
+
+
+<!--<section id="contact">-->
+<!--    <div class="container">-->
+<!--        <div class="col-sm my-auto"-->
+<!--             style="background-image:url('assets/img/map-image.png'); border-radius: 15px; padding: 25px;">-->
+<!--            <h1>cowin vaccine reminder</h1>-->
+<!--            <div style="border-radius: 15px; padding: 25px;" class="card h-100">-->
+<!--                <div class="row">-->
+<!--                    <div class="col-lg-12 text-center">-->
+<!--                        <h2 class="text-uppercase section-heading">Remind me<br></h2>-->
+<!--                        <h3 class="text-muted section-subheading" style="color: rgb(255,0,0);">Add your mail id here to-->
+<!--                            get hourly reminder when 18+ vaccination open at your place!<br></h3>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="row">-->
+<!--                    <div class="col-lg-12">-->
+<!--                        <form method='POST' action="/getdata">-->
+<!--                            <div class="form-row">-->
+<!--                                <div class="col-md-6">-->
+<!--                                    <div class="form-group">-->
+<!--                                        <select class="form-control" id="states" name="states">-->
+<!--                                            <option value="" selected disabled>Select State</option>-->
+<!--                                            <% for(var i = 0; i < state.length; i++) { %>-->
+<!--                                                <option value="<%= state[i].state_id %>"><%= state[i].state_name %></option>-->
+<!--                                            <% } %>-->
+<!--                                        </select>-->
+<!--                                        <small class="form-text text-danger flex-grow-1 help-block lead"></small>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="col-md-6">-->
+<!--                                    <div class="form-group">-->
+<!--                                        <select class="form-control" id="dist" name="dist">-->
+<!--                                            <option value="" selected disabled>Select District</option>-->
+<!--                                        </select>-->
+<!--                                        <small class="form-text text-danger help-block lead"></small>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="form-row">-->
+<!--                                <div class="col-md-12">-->
+<!--                                    <div class="form-group">-->
+<!--                                        <input class="form-control" type="text" placeholder="Your Email *" required=""-->
+<!--                                               id="email" name="email"/>-->
+<!--                                        <small class="form-text text-danger help-block lead"></small>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <% if (status == true) { %>-->
+<!--                                <div class="form-row">-->
+<!--                                    <div class="col-lg-12 text-center">-->
+<!--                                        <h1 class="display-2 text-primary"><span-->
+<!--                                                    class="ion ion-ios-checkmark-circle-outline"></span></h1>-->
+<!--                                        <div id="success"></div>-->
+<!--                                        <button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton"-->
+<!--                                                type="submit">Remind me-->
+<!--                                        </button>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            <% } %>-->
+<!--                        </form>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+
+
 <section class="container">
-    <div class="row vh-75">
-        <div class="col-sm my-auto" style="background: rgba(10,10,10,0.36); border-radius: 15px; padding: 25px;">
+    <div class="row">
+        <div class="col-sm my-auto"
+             style="background: url('assets/img/map-image.png') center / cover; border-radius: 15px; padding: 25px;">
             <h1>cowin vaccine reminder</h1>
-            <div style="border-radius: 15px; padding: 25px;" class="card h-100">
+            <div style="background: rgba(30,30,30,0.40); border-radius: 15px; padding: 25px;" class="card h-100">
                 <div class="card-body d-flex flex-column justify-content-center align-items-center">
                     <h1 class="display-2 text-primary"><span
                                 class="ion ion-ios-checkmark-circle-outline"></span></h1>
                     <h4 class="card-title text-primary">Remind me</h4>
-                    <p class="card-text">Add your mail id here to get hourly reminder when 18+ vaccination open at your place!</p>
-
-                    <form method='POST' action="/getdata">
-                        <div>
-                            <select class="form-control" id="states" name="states">
-                                <option value="" selected disabled>Select State</option>
-                                <% for(var i = 0; i < state.length; i++) { %>
-                                    <option value="<%= state[i].state_id %>"><%= state[i].state_name %></option>
+                    <p class="card-text">Add your mail id here to get hourly reminder when 18+ vaccination open at your
+                        place!</p>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <form method='POST' action="/getdata">
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <select class="form-control" id="states" name="states">
+                                                <option value="" selected disabled>Select State</option>
+                                                <% for(var i = 0; i < state.length; i++) { %>
+                                                    <option value="<%= state[i].state_id %>"><%= state[i].state_name %></option>
+                                                <% } %>
+                                            </select>
+                                            <small class="form-text text-danger flex-grow-1 help-block lead"></small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <select class="form-control" id="dist" name="dist">
+                                                <option value="" selected disabled>Select District</option>
+                                            </select>
+                                            <small class="form-text text-danger help-block lead"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--                            <div class="prompt left-pane">-->
+                                <!--                                <span>Email address</span>-->
+                                <!--                            </div>-->
+                                <div class="form-row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <!--                            <div class="right-pane">-->
+                                            <input class="form-control" type="text" id="email" name="email"/>
+                                            <!--                            </div>-->
+                                            <small class="form-text text-danger help-block lead"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-lg-12 text-center">
+                                        <button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton"
+                                                type="submit">Remind me
+                                        </button>
+                                    </div>
+                                </div>
+                                <% if (status == true) { %>
+                                    <div class="form-row">
+                                        <div class="col-lg-12 text-center">
+                                            <div id="success">
+                                                <div class="alert alert-success alert-dismissable show fade" role="alert">
+                                                    <strong>successfully registered!</strong> You will be reminded with email.
+                                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 <% } %>
-                            </select>
-                            <select class="form-control" id="dist" name="dist"><option value="" selected disabled>Select District</option></select>
-
-                            <div class="prompt left-pane">
-                                <span>Email address</span>
-                            </div>
-
-                            <div class="right-pane">
-                                <input class="form-control" type="text" id="email" name="email"/>
-                            </div>
+                                <!--                        </div>-->
+<!--                                                        <div class="submit-name">-->
+<!--                                                            <input class="btn btn-primary mt-auto" type="submit" value="Remind me"/>-->
+<!--                                                        </div>-->
+                            </form>
+                            <!--                    <% if (status == true) { %>-->
+                            <!--                        <div class="alert alert-primary alert-dismissable show fade" role="alert">-->
+                            <!--                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
+                            <!--                                <span aria-hidden="true">×</span>-->
+                            <!--                            </button>-->
+                            <!--                            <strong>successfully registered!</strong> You will be reminded with email.-->
+                            <!--                        </div>-->
+                            <!--                        &lt;!&ndash;                        <p>You will be reminded with email.</p>&ndash;&gt;-->
+                            <!--                    <% } %>-->
                         </div>
-                        <div class="submit-name">
-                            <input class="btn btn-primary mt-auto" type="submit" value="Remind me"/>
-                        </div>
-                    </form>
-                    <% if (status == true) { %>
-                        <div class="alert alert-primary alert-dismissable show fade" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                            </button>
-                            <strong>successfully registered!</strong> You will be reminded with email.
-                        </div>
-<!--                        <p>You will be reminded with email.</p>-->
-                    <% } %>
+                    </div>
                 </div>
             </div>
         </div>
@@ -74,19 +187,9 @@
 <footer>
     <div class="container">
         <div class="row">
-            <div class="col-md-4"><span class="copyright">Copyright&nbsp;© Brand 2021</span></div>
-            <div class="col-md-4">
-                <ul class="list-inline social-buttons">
-                    <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li class="list-inline-item"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                </ul>
-            </div>
-            <div class="col-md-4">
-                <ul class="list-inline quicklinks">
-                    <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-                    <li class="list-inline-item"><a href="#">Terms of Use</a></li>
-                </ul>
+            <div class="col-md-12">
+                <strong>Disclaimer:</strong> This web app uses CoWin open API to make it easy for you to find slots. Availability changes in real time. So book your slot ASAP using <a href="https://selfregistration.cowin.gov.in">https://selfregistration.cowin.gov.in</a>.<br />
+                <br>For any support <strong><a href="https://twitter.com/iam__navneet">@iam__navneet</a></strong> or <strong><a href="https://twitter.com/iOSDev747">@iOSDev747</a></strong>
             </div>
         </div>
     </div>
