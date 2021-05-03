@@ -13,10 +13,10 @@ router.get('/', function (req, res, next) {
     // console.log(csc.getStatesOfCountry('IN'));
     states = JSON.parse(fs.readFileSync('public/states.json'));
     console.log(states.states);
-    res.render('index', {title: 'Express', state: states.states, status:false});
+    res.render('index', {state: states.states, status:false});
 });
 
-router.post("/getdata", async function (request, response) {
+router.post("/remind", async function (request, response) {
     const email = request.body.email;
     const state = request.body.states;
     const dist = request.body.dist;
@@ -25,9 +25,9 @@ router.post("/getdata", async function (request, response) {
     let res = await axios.post('http://20.197.27.108:7000/api/adduser', payload);
     let data = res.data;
     if(res.status === 200) {
-        response.render('index', {title: 'Express', state: states.states, status:true});
+        response.render('index', {state: states.states, status:true});
     } else {
-        response.render('index', {title: 'Express', state: states.states, status:false});
+        response.render('index', {state: states.states, status:false});
     }
     console.log(data);
 });
