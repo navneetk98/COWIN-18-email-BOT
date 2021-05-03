@@ -3,7 +3,7 @@ const {
     response
 } = require('express');
 const mailgun = require("mailgun-js");
-finalarr = [];
+
 const cron = require('node-cron');
 const fs = require('fs');
 const moment = require('moment');
@@ -44,7 +44,7 @@ async function checkAvailability(dist, email) {
     const response = await axios.get('https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=' + district_id + '&date=' + dateString, options);
     // console.log(response.data);
     let arra = [];
-
+    let finalarr = [];
     arra = response.data.centers;
 
 
@@ -71,7 +71,7 @@ async function checkAvailability(dist, email) {
         const data = {
             from: 'COWIN BOT <info@navneetk.co>',
             to: email,
-            subject: 'We just found some 18+ vaccination centres!',
+            subject: 'We just found some 18+ vaccination centres! ' +dateString,
             text: JSON.stringify(finalarr, null, 2)
         };
         await mg.messages().send(data, function (error, body) {
