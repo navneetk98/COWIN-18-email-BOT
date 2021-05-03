@@ -61,7 +61,7 @@ async function checkAvailability(dist, email) {
             }
         })
     });
-
+    console.log("mailing in process if found");
     if (finalarr.length !== 0) {
         const DOMAIN = 'navneetk.co';
         const mg = mailgun({
@@ -115,6 +115,7 @@ module.exports = {
                 console.error(err)
                 return
             }
+            console.log(content);
             const DOMAIN = 'navneetk.co';
             const mg = mailgun({
                 apiKey: process.env.MAIL_KEY,
