@@ -34,7 +34,7 @@ router.post("/remind", async function (request, response) {
         response.render('index', {state: states.states, status:false, err1: err1, err2: err2, err3: err3});
     }
     let payload = { email: email, cityid: dist };
-    let res = await axios.post('http://20.197.27.108:7000/api/adduser', payload);
+    let res = await axios.post('http://localhost:7000/api/adduser', payload);
     let data = res.data;
     if(res.status === 200) {
         response.render('index', {state: states.states, status:true, err1: err1, err2: err2, err3: err3});
