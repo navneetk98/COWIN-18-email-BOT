@@ -115,6 +115,21 @@ module.exports = {
                 console.error(err)
                 return
             }
+            const DOMAIN = 'navneetk.co';
+            const mg = mailgun({
+                apiKey: process.env.MAIL_KEY,
+                domain: 'navneetk.co'
+            });
+            const data = {
+                from: 'CowIN BOT <info@navneetk.co>',
+                to: email,
+                subject: 'Successfully added to mailing list',
+                text: 'We will check on hourly basis and will remind if any 18+ vaccination slots open at your place. To unsubscribe write a mail to navneetkh98@gmail.com.'
+            };
+            mg.messages().send(data, function (error, body) {
+                console.log(body);
+                console.log(error);
+            });
             return res.status(200).send();
         })
         return res.status(200);
