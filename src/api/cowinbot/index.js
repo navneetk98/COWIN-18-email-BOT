@@ -14,7 +14,7 @@ async function cronjobs() {
             var sastadb = fs.readFileSync('./sastadb.txt', 'utf8').split('\n');
 
 
-            for (i = 0; i < sastadb.length - 1; i++) {
+            for (i = 0; i < sastadb.length; i++) {
                 if (((/\w/).test(sastadb[i]))) {
                     var words = sastadb[i].split(' ');
                     console.log(words[1]);
