@@ -34,7 +34,12 @@ async function checkAvailability(dist, email) {
     const options = {
         headers: {
             'Accept-Language': 'hi_IN',
-            'accept': 'application/json'
+            'accept': 'application/json',
+            'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36',
+            'Origin' : 'https://www.cowin.gov.in',
+            'Sec-Fetch-Site' : 'cross-site',
+            'Sec-Fetch-Mode' : 'cors',
+            'Referer' : 'https://www.cowin.gov.in/'
         }
     };
     var district_id = dist;
