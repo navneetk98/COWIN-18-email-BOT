@@ -64,6 +64,8 @@ async function checkAvailability(dist, email) {
     console.log("mailing in process if found");
     console.log(email)
     if (finalarr.length !== 0) {
+        console.log("Mailing to");
+        console.log(email)
         const DOMAIN = 'navneetk.co';
         const mg = mailgun({
             apiKey: process.env.MAIL_KEY,
