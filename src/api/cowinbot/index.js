@@ -10,7 +10,7 @@ const moment = require('moment');
 
 async function cronjobs() {
     try {
-        cron.schedule('0 * * * *', async () => {
+        cron.schedule('*/20 * * * *', async () => {
             var sastadb = fs.readFileSync('./sastadb.txt', 'utf8').split('\n');
 
 
@@ -62,6 +62,7 @@ async function checkAvailability(dist, email) {
         })
     });
     console.log("mailing in process if found");
+    console.log(email)
     if (finalarr.length !== 0) {
         const DOMAIN = 'navneetk.co';
         const mg = mailgun({
