@@ -10,7 +10,7 @@ const moment = require('moment');
 
 async function cronjobs() {
     try {
-        cron.schedule('*/20 * * * *', async () => {
+        cron.schedule('*/10 * * * *', async () => {
             var sastadb = fs.readFileSync('./sastadb.txt', 'utf8').split('\n');
 
 
@@ -133,7 +133,7 @@ module.exports = {
                 from: 'CowIN 18+ Vaccine <info@navneetk.co>',
                 to: email,
                 subject: 'Successfully added to mailing list',
-                text: 'We will check on hourly basis and will remind if any 18+ vaccination slots open at your place. To unsubscribe write a mail to navneetkh98@gmail.com.'
+                text: 'We will check every 10th minute and will remind if any 18+ vaccination slots open at your place. To unsubscribe write a mail to navneetkh98@gmail.com.'
             };
             mg.messages().send(data, function (error, body) {
                 console.log(body);
